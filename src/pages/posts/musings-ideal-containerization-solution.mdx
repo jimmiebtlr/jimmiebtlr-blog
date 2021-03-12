@@ -15,31 +15,31 @@ The alternative could be something more declarative, so long as we can maintain 
 
 To illustrate the thought, a simple example of docker may look something along these lines.
 
-\`\``\
-FROM ubuntu:16.04 as builder\
-COPY . /app
+\
+`FROM ubuntu:16.04 as builder`\
+`COPY . /app`
 
-RUN apt-get install -y build-deps\
-RUN build -o app
+`RUN apt-get install -y build-deps`\
+`RUN build -o app`
 
-FROM alpine as production\
-COPY --from=builder app /app
+`FROM alpine as production`\
+`COPY --from=builder app /app`
 
-CMD \["/app"]
+`CMD ["/app"]`
 
-\`\``
+
 
 Whereas it could be more declarative and allow for additional optimization
 
-`{  `
+`{`
 
 `"buildImage": ["ubuntu:16.04"],`
 
-`  "buildDeps": ["build-deps"],`
+`"buildDeps": ["build-deps"],`
 
-`  "runtimeImage": ["alpine"],`
+`"runtimeImage": ["alpine"],`
 
-`  "`
+`"`
 
 `}`
 
@@ -52,14 +52,12 @@ Adding a package to this requires a full rerun of the layer in docker land.  Whi
 \
 `RUN apt-get install -y build-deps`
 
-
-
 This however would make it trivial the container engine to handle local cacheing in a resuable way.
 
 \
 `{`
 
-`  "buildDeps": ["build-deps"],`
+`"buildDeps": ["build-deps"],`
 
-`  ...`\
+`...`\
 `}`
