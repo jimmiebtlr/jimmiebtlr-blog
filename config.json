@@ -9,7 +9,10 @@
     "Kubernetes",
     "Terraform",
     "Infrastructure as Code",
-    "Tensorflow"
+    "Tensorflow",
+    "Docker",
+    "Containerization",
+    "Devops"
   ],
   "posts_per_page": 5,
   "twitter_account": "@jimmiebtlr",
